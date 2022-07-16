@@ -51,12 +51,12 @@ aws configure
 chmod +x  *.sh
 ```
 * Before Runing  the script change the follwoing
-cronjob time 
-script parameter
---S3_BUCKET_NAME
---WEBSITE_PATH
---WEBSITE_NAME
---SCRIPTS_PATH
+    * cronjob time inside addcron.sh
+    * script parameter
+        * --S3_BUCKET_NAME
+        * --WEBSITE_PATH
+        * --WEBSITE_NAME
+        * --SCRIPTS_PATH
 
 ```bash
 ./ addcron.sh --S3_BUCKET_NAME abd.alaa --WEBSITE_PATH /home/abd.alaabishtawi.com/public_html/ --WEBSITE_NAME abd.alaabishtawi.com --SCRIPTS_PATH /home/passing
