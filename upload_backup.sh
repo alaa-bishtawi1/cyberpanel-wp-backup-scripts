@@ -8,6 +8,7 @@ S3_BUCKET=$2
 
 
 AMAZON_S3_BUCKET="s3://$S3_BUCKET/"
+#which aws
 AMAZON_AWS_BIN="/usr/local/bin/aws"
 BACKUP_PATH="/home/backup/$WEBSITE_NAME"
 
