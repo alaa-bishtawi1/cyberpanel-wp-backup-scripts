@@ -71,14 +71,11 @@ is_epmty () {
 
 
 }
-is_epmty "$S3_BUCKET_NAME" "S3_BUCKET_NAME"
-is_epmty "$WEBSITE_PATH" "WEBSITE_PATH"
-is_epmty "$WEBSITE_NAME" "WEBSITE_NAME"
-is_epmty "$SCRIPTS_PATH" "SCRIPTS_PATH"
+/bin/bash ${SCRIPTS_PATH}/create_logs.sh ${WEBSITE_NAME}
 
-(crontab -l; echo "25 * * * * $SCRIPTS_PATH/backup_sql.sh $WEBSITE_PATH $WEBSITE_NAME 2>>/home/backup/$WEBSITE_NAME/log/mysql_log") | sort -u | crontab -
-(crontab -l; echo "30 * * * * $SCRIPTS_PATH/backup_files.sh $WEBSITE_PATH $WEBSITE_NAME 2>>/home/backup/$WEBSITE_NAME/log/file_log") | sort -u | crontab -
-(crontab -l; echo "35 * * * * $SCRIPTS_PATH/upload_backup.sh $WEBSITE_NAME $S3_BUCKET_NAME 2>>/home/backup/$WEBSITE_NAME/log/upload_log") | sort -u | crontab -
-(crontab -l; echo "40 * * * * rm -rf /home/backup/$WEBSITE_NAME 2>>/home/backup/$WEBSITE_NAME/log/clear_log") | sort -u | crontab -
+(crontab -l; echo "36 * * * * $SCRIPTS_PATH/backup_sql.sh $WEBSITE_PATH $WEBSITE_NAME 2>>/home/backup/$WEBSITE_NAME/log/mysql_log") | sort -u | crontab -
+(crontab -l; echo "37 * * * * $SCRIPTS_PATH/backup_files.sh $WEBSITE_PATH $WEBSITE_NAME 2>>/home/backup/$WEBSITE_NAME/log/file_log") | sort -u | crontab -
+(crontab -l; echo "38 * * * * $SCRIPTS_PATH/upload_backup.sh $WEBSITE_NAME $S3_BUCKET_NAME 2>>/home/backup/$WEBSITE_NAME/log/upload_log") | sort -u | crontab -
+(crontab -l; echo "40 * * * * rm -rf /home/backup/$WEBSITE_NAME 2>>/home/backup/$WEBSITE_NAME/log/clear_log && $SCRIPTS_PATH/create_logs.sh $WEBSITE_NAME") | sort -u | crontab -
 echo "All cronjob has been set successfully"
 
