@@ -59,5 +59,5 @@ chmod +x  *.sh
         * --SCRIPTS_PATH
 
 ```bash
-./ addcron.sh --S3_BUCKET_NAME abd.alaa --WEBSITE_PATH /home/abd.alaabishtawi.com/public_html/ --WEBSITE_NAME abd.alaabishtawi.com --SCRIPTS_PATH /home/passing
+./addcron.sh --S3_BUCKET_NAME abd.alaa --WEBSITE_PATH /home/abd.alaabishtawi.com/public_html/ --WEBSITE_NAME abd.alaabishtawi.com --SCRIPTS_PATH /home/passing
 ```
