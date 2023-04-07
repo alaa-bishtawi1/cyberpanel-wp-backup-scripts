@@ -11,10 +11,11 @@ AMAZON_S3_BUCKET="s3://$S3_BUCKET/"
 #which aws
 AMAZON_AWS_BIN="/usr/local/bin/aws"
 BACKUP_PATH="/home/backup/$WEBSITE_NAME"
+STORAGE_CLASS="GLACIER_IR"
 
 sync_s3(){
 
-      ${AMAZON_AWS_BIN} s3 sync $BACKUP_PATH ${AMAZON_S3_BUCKET}
+      ${AMAZON_AWS_BIN} s3 sync $BACKUP_PATH ${AMAZON_S3_BUCKET} --storage-class $STORAGE_CLASS
 
 }
 sync_s3
